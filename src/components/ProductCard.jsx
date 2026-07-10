@@ -8,7 +8,11 @@ import { formatPrice } from '../utils/formatters';
 
 function ProductCard({ product }) {
   const { addToCart, toggleWishlist, wishlist } = useStore();
+<<<<<<< HEAD
   const isWishlisted = wishlist.some(item => item.product_id === product.id);
+=======
+  const isWishlisted = wishlist.some(item => item.id === product.id);
+>>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
 
   return (
     <motion.div
@@ -45,8 +49,13 @@ function ProductCard({ product }) {
         
         <div className="flex items-center gap-1 mb-2">
           <Star className="w-4 h-4 fill-accent text-accent" />
+<<<<<<< HEAD
           <span className="text-sm text-gray-600 dark:text-gray-300">{product.rating || 0}</span>
           <span className="text-xs text-gray-400">({product.stock_quantity} in stock)</span>
+=======
+          <span className="text-sm text-gray-600 dark:text-gray-300">{product.rating}</span>
+          <span className="text-xs text-gray-400">({product.stock} in stock)</span>
+>>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
         </div>
 
         <div className="flex items-center justify-between mb-3">
