@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: harykims-intertech-api
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+        placeholder: "postgresql://your_neon_db_user:password@ep-xxxx.neon.tech/neondb"
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: ALGORITHM
+        value: "HS256"
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: REFRESH_TOKEN_EXPIRE_DAYS
+        value: "7"
+      - key: FRONTEND_URL
+        sync: false
+        placeholder: "https://your-frontend-domain.vercel.app"
+      - key: BACKEND_URL
+        sync: false
+        placeholder: "https://harykims-intertech-api.onrender.com"
+      - key: DODO_ENVIRONMENT
+        value: "test_mode"

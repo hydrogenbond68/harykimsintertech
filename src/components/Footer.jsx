@@ -13,20 +13,17 @@ function Footer() {
             <h3 className="text-xl font-bold mb-4">Harykim's Intertech</h3>
             <p className="text-gray-400 mb-4">Your trusted technology partner since 2013. Quality products, best prices, excellent service.</p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
+              <a href="https://facebook.com/@harykimsintertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
                 <FaFacebook size={20} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
+              <a href="https://twitter.com/@harykimsintertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
                 <FaXTwitter size={20} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
+              <a href="https://instagram.com/@harykimsintertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
                 <FaInstagram size={20} />
               </a>
               <a href="https://tiktok.com/@harykimsintertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
                 <FaTiktok size={20} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition">
-                <FaLinkedin size={20} />
               </a>
             </div>
           </div>
@@ -63,11 +60,11 @@ function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone size={18} />
-                <span>+254 118 477 340</span>
+                <span>+254 118 477 340 / 0714 818 100</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail size={18} />
-                <span>hkintertech22@gmail.com</span>
+                <span>harykimsintertech@gmail.com</span>
               </li>
             </ul>
           </div>
