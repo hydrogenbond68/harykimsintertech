@@ -3,11 +3,8 @@ import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, Heart, ShoppingCart, Truck, Shield, RotateCcw, Minus, Plus } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
-<<<<<<< HEAD
 import { useAuth } from '../context/AuthContext';
 import { reviewService } from '../services/shopService';
-=======
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
 import ProductCard from '../components/ProductCard';
 import { toast } from 'react-toastify';
 import { formatPrice } from '../utils/formatters';
@@ -15,27 +12,17 @@ import { formatPrice } from '../utils/formatters';
 function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-<<<<<<< HEAD
   const { products, addToCart, toggleWishlist, wishlist, reviews: allReviews, refreshData } = useStore();
   const { user } = useAuth();
-=======
-  const { products, addToCart, toggleWishlist, wishlist, addReview, reviews: allReviews } = useStore();
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [reviewText, setReviewText] = useState('');
   const [rating, setRating] = useState(5);
 
   const product = products.find(p => p.id === parseInt(id));
-<<<<<<< HEAD
   const productReviews = allReviews.filter(r => r.product_id === product?.id);
   const relatedProducts = products.filter(p => p.category === product?.category && p.id !== product?.id).slice(0, 4);
   const isWishlisted = wishlist.some(item => item.product_id === product?.id);
-=======
-  const productReviews = allReviews.filter(r => r.productId === product?.id);
-  const relatedProducts = products.filter(p => p.category === product?.category && p.id !== product?.id).slice(0, 4);
-  const isWishlisted = wishlist.some(item => item.id === product?.id);
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
 
   if (!product) {
     return (
@@ -52,22 +39,16 @@ function ProductDetails() {
     addToCart(product, quantity);
   };
 
-<<<<<<< HEAD
   const handleSubmitReview = async (e) => {
     e.preventDefault();
     if (!user) {
       toast.error('Please login to write a review');
       return;
     }
-=======
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
     if (!reviewText.trim()) {
       toast.error('Please enter a review');
       return;
     }
-<<<<<<< HEAD
     try {
       await reviewService.createReview({
         product_id: product.id,
@@ -81,18 +62,6 @@ function ProductDetails() {
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Failed to submit review');
     }
-=======
-    addReview({
-      productId: product.id,
-      userName: 'Guest User',
-      rating,
-      comment: reviewText,
-      date: new Date().toISOString().split('T')[0],
-    });
-    setReviewText('');
-    setRating(5);
-    toast.success('Review added successfully!');
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
   };
 
   return (
@@ -145,13 +114,8 @@ function ProductDetails() {
                 <span className="text-gray-400">•</span>
                 <span className="text-gray-500">{productReviews.length} reviews</span>
                 <span className="text-gray-400">•</span>
-<<<<<<< HEAD
                 <span className={product.stock_quantity > 0 ? 'text-green-600' : 'text-red-600'}>
                   {product.stock_quantity > 0 ? `${product.stock_quantity} in stock` : 'Out of stock'}
-=======
-                <span className={product.stock > 0 ? 'text-green-600' : 'text-red-600'}>
-                  {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
                 </span>
               </div>
 
@@ -179,11 +143,7 @@ function ProductDetails() {
                   </button>
                   <span className="px-4 py-2 min-w-[50px] text-center">{quantity}</span>
                   <button
-<<<<<<< HEAD
                     onClick={() => setQuantity(Math.min(product.stock_quantity, quantity + 1))}
-=======
-                    onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
                     className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     <Plus size={16} />
@@ -195,11 +155,7 @@ function ProductDetails() {
               <div className="flex gap-4 mb-6">
                 <button
                   onClick={handleAddToCart}
-<<<<<<< HEAD
                   disabled={product.stock_quantity === 0}
-=======
-                  disabled={product.stock === 0}
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
                   className="flex-1 bg-primary text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <ShoppingCart size={20} />
@@ -210,11 +166,7 @@ function ProductDetails() {
                     handleAddToCart();
                     navigate('/checkout');
                   }}
-<<<<<<< HEAD
                   disabled={product.stock_quantity === 0}
-=======
-                  disabled={product.stock === 0}
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
                   className="flex-1 bg-accent text-white py-3 rounded-lg font-semibold hover:bg-accent/90 transition disabled:opacity-50"
                 >
                   Buy Now
@@ -253,11 +205,7 @@ function ProductDetails() {
           <div className="border-t p-6">
             <h2 className="text-xl font-bold mb-4">Technical Specifications</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-<<<<<<< HEAD
               {product.specifications && Object.entries(product.specifications).map(([key, value]) => (
-=======
-              {Object.entries(product.specs).map(([key, value]) => (
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
                 <div key={key} className="flex">
                   <span className="w-32 font-medium text-gray-600 dark:text-gray-400 capitalize">{key}:</span>
                   <span className="text-gray-800 dark:text-gray-200">{value}</span>

@@ -258,11 +258,7 @@ function Home() {
       {/* Trending Products */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-<<<<<<< HEAD
           <h2 className="section-title"></h2>
-=======
-          <h2 className="section-title">📈 Trending Now</h2>
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {trending.map((product, idx) => (
               <motion.div
@@ -282,11 +278,7 @@ function Home() {
       {/* Discounted Products */}
       <section className="py-16 bg-gradient-to-r from-red-50 to-orange-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
-<<<<<<< HEAD
           <h2 className="section-title"></h2>
-=======
-          <h2 className="section-title">🎯 Special Discounts</h2>
->>>>>>> 5f184f5a270466e88429f5881dc9433fd095af8e
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {discounted.map((product, idx) => (
               <motion.div
