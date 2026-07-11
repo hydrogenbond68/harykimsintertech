@@ -137,14 +137,14 @@ function About() {
                 <Mail size={24} />
               </div>
               <h4 className="font-bold mb-2">Email Us</h4>
-              <p>hkintertech22@gmail.com</p>
+              <p>harykimsintertech@gmail.com</p>
             </div>
             <div className="flex flex-col items-center">
               <div className="bg-primary/10 p-4 rounded-full text-primary mb-4">
                 <MapPin size={24} />
               </div>
               <h4 className="font-bold mb-2">Visit Us</h4>
-              <p>Nairobi, Kenya</p>
+              <p>Wangige, Kenya</p>
             </div>
           </div>
 
