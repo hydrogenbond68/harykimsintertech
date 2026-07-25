@@ -4,9 +4,9 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #2563eb;
-  --color-secondary: #0f172a;
-  --color-accent: #f59e0b;
+  --color-primary: #059669;
+  --color-secondary: #022c22;
+  --color-accent: #10b981;
 
   --font-sans: "Inter", "system-ui", "sans-serif";
 
